@@ -55,6 +55,7 @@ gg_base +
   )
 ```
 ```{r}
-
+gg_base + 
+  geom_col(aes(fill = visitors))
 ```
 
