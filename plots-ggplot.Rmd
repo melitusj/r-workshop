@@ -46,16 +46,24 @@ gg_base +
   geom_area()
 ```
 ```{r}
-gg_base + 
+gg_base +
   geom_point(
     aes(size = visitors,
-        color = visitors,
-        alpha = visitors)
-    
-  )
+        color = visitors),
+    alpha = 0.5
+  ) +
+  theme_void()
 ```
 ```{r}
-gg_base + 
-  geom_col(aes(fill = visitors))
+gg_base +
+  geom_line(linetype = "dotted") +
+  theme_minimal() + 
+  theme(panel.grid.minor=element_blank(), panel.grid.major=element_blank())
+  labs(
+    x = "Year",
+    y = "Annual park visitors",
+    title = "Channel Islands NP Visitation",
+    subtitle = "(1963 - 2016)"
+  )
 ```
 
