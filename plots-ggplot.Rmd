@@ -58,12 +58,22 @@ gg_base +
 gg_base +
   geom_line(linetype = "dotted") +
   theme_minimal() + 
-  theme(panel.grid.minor=element_blank(), panel.grid.major=element_blank())
+  theme(panel.grid.minor=element_blank(), panel.grid.major=element_blank()) +
   labs(
     x = "Year",
     y = "Annual park visitors",
     title = "Channel Islands NP Visitation",
     subtitle = "(1963 - 2016)"
   )
+```
+
+```{r}
+gg_np +
+  geom_line(show.legend = FALSE) +
+  theme_light() + 
+  labs(x = "year", y = "annual visitors") +
+  facet_wrap(~ park_name)
+ggsave(here("figures", "np_graph.jpg"), dpi = 180, width = 8, height = 7)
+
 ```
 
