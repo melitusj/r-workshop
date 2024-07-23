@@ -49,8 +49,9 @@ gg_base +
 gg_base + 
   geom_point(
     aes(size = visitors,
-        color = visitors),
-    alpha = 0.5
+        color = visitors,
+        alpha = visitors)
+    
   )
 ```
 ```{r}
