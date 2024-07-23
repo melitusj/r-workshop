@@ -1,0 +1,59 @@
+---
+title: "Creating graphs in R with `ggplot2`"
+author: "Melissa Anderson"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(readxl)
+library(here)
+```
+
+```{r read, include=FALSE, results='FALSE'}
+ca_np <- read_csv(here("data", "ca_np.csv"))
+ci_np <- read_excel(here("data", "ci_np.xlsx"))
+```
+## Look! I made a graph
+Notice how I put the code in a chunk and then made a graph. Pretty neat, eh?
+
+```{r}
+ggplot(data = ci_np, aes(x = year, y = visitors)) +
+  geom_line()
+```
+
+I can make a scatter plot. . .
+
+```{r}
+gg_base <- ggplot(data = ci_np, aes(x = year, y = visitors))
+gg_base +
+  geom_point()
+```
+
+Or, I can make a column plot.
+
+```{r}
+gg_base +
+  geom_col()
+```
+
+Finally, let's wrap up with an area plot.
+
+```{r}
+gg_base +
+  geom_area()
+```
+```{r}
+gg_base + 
+  geom_point(
+    aes(size = visitors,
+        color = visitors),
+    alpha = 0.5
+  )
+```
+```{r}
+
+```
+
